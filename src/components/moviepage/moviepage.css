@@ -1,0 +1,253 @@
+:root {
+    --movie-poster-width: 250px;
+}
+
+.movie-page {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.movie-image-div {
+    width: 100vw;
+    max-width: 1000px;
+    aspect-ratio: 16/9;
+    position: relative;
+    /* overflow: hidden; */
+
+}
+
+.movie-image {
+    width: 100%;
+}
+
+.movie-poster {
+    position: absolute;
+    width: var(--movie-poster-width);
+    aspect-ratio: 0.67;
+    left: 50px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+    transform: translateY(50%);
+
+}
+
+.movie-name-and-details {
+    position: absolute;
+    top: 100%;
+    left: 310px;
+    height: 375px;
+    /* background-color: aliceblue; */
+    color: white;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+
+.movie-name-and-details h1,
+h2 {
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.75);
+    font-weight: 600;
+}
+
+.movie-name-and-details p {
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.75);
+    margin: 5px;
+}
+
+.pseudo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 75%);
+}
+
+.half-size {
+    min-height: 50%;
+    /* overflow: hidden; */
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.genre-link {
+    box-sizing: border-box;
+    border: 1px solid white;
+    padding: 3px 5px;
+    border-radius: 100vh;
+    /* margin-right: 5px; */
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+
+}
+
+.genre-link:hover {
+    color: white;
+    /* scale: 1.1; */
+}
+
+.desc {
+    width: calc(80vw - var(--movie-poster-width));
+    max-width: 550px;
+}
+
+
+.usefull-links {
+    /* border: 1px solid blue; */
+    transform: translateY(300px);
+    color: white;
+    padding: 15px;
+}
+
+.usefull-links ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
+    font-size: 20px;
+}
+
+.usefull-links ul li {
+    color: black;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.usefull-links ul li:nth-child(1) {
+    color: white;
+    font-weight: normal;
+    font-size: larger;
+    padding: 0 15px 0 0;
+}
+
+.homepage {
+    background-color: red;
+}
+
+.imdb {
+    background-color: #f3ce13;
+}
+
+.usefull-links ul a {
+    color: black;
+    text-decoration: none;
+}
+
+.production-companies {
+    transform: translateY(270px);
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+.production-logos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.production-logos img {
+    height: 60px;
+}
+
+.production-logos p {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 800px) {
+    :root {
+        --movie-poster-width: 300px;
+    }
+
+    .movie-name-and-details {
+        left: 360px;
+        height: 475px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        font-size: 13px;
+    }
+
+    :root {
+        --movie-poster-width: 200px;
+    }
+
+    .movie-name-and-details {
+        left: 260px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .movie-image {
+        position: relative;
+        z-index: 5;
+        width: 100vw;
+        padding: 3vh;
+        display: none;
+    }
+
+    .movie-poster {
+        position: fixed;
+        width: 100vw;
+        aspect-ratio: 0.67;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        transform: none;
+    }
+    .movie-image-div::after{
+        content: "";
+        top:0;
+        left:0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+    }
+    .movie-name-and-details{
+        margin-top: 40px;
+        position: relative;
+        left: 0;
+        top: 0%;
+        transform: translateY(0px);
+        z-index: 3;
+        height: fit-content;
+    }
+    .half-size{
+        margin-bottom: 30px;
+        height: fit-content;
+    }
+    .half-size .desc {
+        width: 90vw;
+    }
+    .usefull-links {
+        transform: translateY(0);
+        position: relative;
+        /* margin-top: 30px; */
+
+    }
+    .usefull-links ul{
+        gap: 15px;
+    }
+    .usefull-links ul li:nth-child(1) {
+        width: 100vh;
+        padding:0;
+    }
+    .production-companies {
+        transform: translateY(0);
+        position: relative;
+    }
+    
+}

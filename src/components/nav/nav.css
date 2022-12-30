@@ -1,0 +1,111 @@
+nav * {
+    color: white !important;
+    text-decoration: none !important;
+    list-style: none;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0 !important;
+
+    display: flex;
+    align-items: baseline !important;
+    justify-content: space-around !important;
+    font-weight: normal;
+
+}
+
+.outer {
+    height: 80px;
+    padding-top: 20px;
+    /* border-bottom: 1px solid #444444; */
+    align-items: baseline !important;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #000;
+    transition: 0.5s;
+}
+
+.logo {
+    z-index: 2;
+    width: 80px;
+    aspect-ratio: 2560 / 1291;
+    transform: translateY(3px);
+    transition: 0.2s;
+}
+
+.logo:hover {
+    scale: 1.04;
+}
+
+nav * :hover {
+    color: red !important;
+}
+.Search-box {
+    position: relative;
+}
+input{
+    font-size: 20px!important;
+}
+.bar {
+    display: none;
+}
+
+
+@media screen  and (max-width:800px)  {
+    .Search-box {
+        display: none;
+    }
+}
+@media screen and (max-width: 550px) {
+    .links {
+        display: none;
+        transition: 0.5s;
+    }
+    ul {
+        justify-content: space-between !important;
+        
+    }
+    .outer {
+        height: 0;
+        position: fixed;
+        transition: 0.5s;
+        padding: 0;
+        width: 100vw;
+    }
+    .outer {
+        background-color: transparent;
+    }
+    .bar {
+        display: block;
+        margin-right: 15px;
+    }
+
+
+    .active.outer{
+        /* padding: 10px; */
+        height: 300px;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.794)!important;
+        transition: 0.5s;
+        /* overflow: hidden; */
+        
+    }
+    .active .links {
+        display: block;
+        transition: 0.5s;
+    }
+    .active ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .Search-box {
+        position: relative;
+    }
+    input{
+        background-color: aliceblue;
+    }
+    .bar {
+        align-self: center;
+    }
+}
+

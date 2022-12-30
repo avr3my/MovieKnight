@@ -1,0 +1,5 @@
+.image-div {
+    width: 50vw;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}

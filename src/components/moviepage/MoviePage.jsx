@@ -17,13 +17,16 @@ export default function MoviePage() {
   useEffect(() => {
     getMovie();
   }, [id]);
-
+  useEffect(() => {
+    document.title = movie && movie.title ?movie.title :"Loading...";
+  }, [movie])
+  
   if (movie && movie.success === false) {
     return <Error />;
     //navigate to error page
   }
 
-  console.log("(in movie page) movie details:", movie);
+  // console.log("(in movie page) movie details:", movie);
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function MoviePage() {
                   <h1>{movie.title}</h1>
                   <p className="tag">{movie.tagline}</p>
                   <p className="rank">
-                    <i class="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
                     {movie.vote_average.toFixed(1)}
                     <span style={{ marginLeft: "1rem" }}>
                       ({movie.vote_count}) votes
@@ -93,7 +96,7 @@ export default function MoviePage() {
             {movie.homepage && (
               <li className="homepage">
                 <a target="blank" href={movie.homepage}>
-                  Homepage <i class="newTab fas fa-external-link-alt"></i>
+                  Homepage <i className="newTab fas fa-external-link-alt"></i>
                 </a>
               </li>
             )}
@@ -103,7 +106,7 @@ export default function MoviePage() {
                   target="blank"
                   href={`https://www.imdb.com/title/${movie.imdb_id}/`}
                 >
-                  IMDb <i class="newTab fas fa-external-link-alt"></i>
+                  IMDb <i className="newTab fas fa-external-link-alt"></i>
                 </a>
               </li>
             )}
@@ -137,4 +140,3 @@ export default function MoviePage() {
   );
 }
 
-//https://image.tmdb.org/t/p/original

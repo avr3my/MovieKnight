@@ -12,6 +12,7 @@ export default function Home() {
     setMovies(res);
   }
   useEffect(() => {
+    document.title = "Home";
     getMovies();
   }, []);
   return (

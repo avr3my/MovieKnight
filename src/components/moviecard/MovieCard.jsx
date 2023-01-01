@@ -35,7 +35,7 @@ export default function MovieCard({ details }) {
             <p className="info">
               {details.release_date}
               <span style={{ float: "right" }}>
-                <i class="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
                 {details.vote_average}
               </span>
             </p>

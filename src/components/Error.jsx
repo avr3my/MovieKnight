@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 export default function Error() {
+  useEffect(() => {
+    document.title = "404 PAGE NOT FOUND"
+  }, [])
+  
   return (
     <>
       <h1
@@ -14,7 +18,7 @@ export default function Error() {
         404 PAGE NOT FOUND
       </h1>
       <p style={{ width: "100vw", textAlign: "center", color: "white" }}>
-        Destination doesnt exist  😶
+        Wrong page 😶
       </p>
     </>
   );

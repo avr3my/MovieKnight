@@ -6,24 +6,22 @@ import "./search.css";
 const api =
   "https://api.themoviedb.org/3/search/movie?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US&query=";
 
-export default function Search() {
-  const [search, setSearch] = useState("");
+export default function Search({ setBar, search, setSearch, search2 ,setSearch2}) {
   const [movies, setMovies] = useState();
   useEffect(() => {
-
-    if (search){fetch(api + search.replace(" ", "+"))
-    .then((res) => res.json())
-    .then((data) => {
-      setMovies(data.results);
-    });}
+    if (search) {
+      fetch(api + search.replace(" ", "+"))
+        .then((res) => res.json())
+        .then((data) => {
+          setMovies(data.results);
+        });
+    }
   }, [search]);
-
 
   // console.log("movie results at 'Search':",movies);
   return (
-    <>
-      <div className="search-area">
-
+    <div className={search2 ? "absolute" : ""}>
+      <div className={`search-area`}>
         <input
           type="search"
           name=""
@@ -38,17 +36,32 @@ export default function Search() {
           <ul>
             {movies.map((movie) => {
               return (
-                <Link onClick={()=>setSearch("")} className="search-movie-link" to={"/movie/" + movie.id}>
-                  {movie.poster_path && <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className="small-poster" /> ||<Skeleton/>}
+                <Link
+                  onClick={() => {
+                    setSearch("");
+                    setBar(false);
+                    setSearch2(false)
+                  }}
+                  className="search-movie-link"
+                  to={"/movie/" + movie.id}
+                >
+                  {(movie.poster_path && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      className="small-poster"
+                    />
+                  )) || <Skeleton />}
                   <span className="search-movie-name">
-                    {movie.title.length > 20? movie.title.slice(0,16) + '...' : movie.title.slice(0,19)}
-                    </span>
+                    {movie.title.length > 20
+                      ? movie.title.slice(0, 16) + "..."
+                      : movie.title.slice(0, 19)}
+                  </span>
                 </Link>
               );
             })}
           </ul>
         </div>
       )}
-    </>
+    </div>
   );
 }

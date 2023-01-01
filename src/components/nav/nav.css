@@ -2,7 +2,7 @@ nav * {
     color: white !important;
     text-decoration: none !important;
     list-style: none;
-    font-size: 25px;
+    font-size: clamp(17px,3.5vw,25px);
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 0 !important;
 
@@ -15,8 +15,7 @@ nav * {
 
 .outer {
     height: 80px;
-    padding-top: 20px;
-    /* border-bottom: 1px solid #444444; */
+    padding-top: 10px;
     align-items: baseline !important;
     position: sticky;
     top: 0;
@@ -27,10 +26,11 @@ nav * {
 
 .logo {
     z-index: 2;
-    width: 80px;
-    aspect-ratio: 2560 / 1291;
+    width: 100px;
+    aspect-ratio: 396 / 198;
     transform: translateY(3px);
     transition: 0.2s;
+    border-radius: 10px;
 }
 
 .logo:hover {
@@ -49,21 +49,37 @@ input{
 .bar {
     display: none;
 }
+.bar-close {
+    display: none;
+}
 
+.search-icon {
+    display: none!important;
+}
 
-@media screen  and (max-width:800px)  {
+@media screen and (550px< width <800px) {
+    .search-icon{
+        display: block!important;
+    }
+}
+
+@media screen and (width<800px)  {
     .Search-box {
         display: none;
     }
+    .absolute {
+        position: absolute;
+        right: 10px;
+        top: 80px;
+    }
 }
-@media screen and (max-width: 550px) {
+@media screen and (width < 550px) {
     .links {
         display: none;
         transition: 0.5s;
     }
     ul {
         justify-content: space-between !important;
-        
     }
     .outer {
         height: 0;
@@ -78,6 +94,22 @@ input{
     .bar {
         display: block;
         margin-right: 15px;
+        align-self: center;
+    }
+    .active .bar{
+        display: none!important;
+
+    }
+    .active .bar-close {
+        display: inline;
+        float: inline-end;
+        font-size: 20px;
+        margin-right: 47px;
+        transform:translateY(-18px);
+    }
+    .logo-link {
+        justify-content: space-between!important;
+        width: 100vw;
     }
 
 
@@ -104,8 +136,6 @@ input{
     input{
         background-color: aliceblue;
     }
-    .bar {
-        align-self: center;
-    }
+
 }
 

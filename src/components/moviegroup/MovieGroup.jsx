@@ -13,11 +13,11 @@ export default function MovieGroup({ category }) {
   const [movies, setMovies] = useState();
   async function getMovies() {
     let api_by_category = `https://api.themoviedb.org/3/movie/${
-      category == "Top rated"
+      category === "Top rated"
         ? "top_rated"
-        : category == "Upcoming movies"
+        : category === "Upcoming movies"
         ? "upcoming"
-        : category == "Popular"
+        : category === "Popular"
         ? "popular"
         : ""
     }?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`;
@@ -30,8 +30,9 @@ export default function MovieGroup({ category }) {
     setMovies(res);
   }
   useEffect(() => {
+    document.title = !id ? category: "Genre "+ id;
     getMovies();
-  }, [category]);
+  }, [category, id]);
  
 
   return (

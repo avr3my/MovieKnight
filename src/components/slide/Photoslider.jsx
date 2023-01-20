@@ -28,10 +28,10 @@ export default function ImageSlider({ movies }) {
     <div className="slider big-screen">
       <img src={images[ImageIndex]} />
       <button className="btnn" onClick={nextImage}>
-        <i class="fa-solid fa-caret-right"></i>
+        <i className="fa-solid fa-caret-right"></i>
       </button>
       <button className="btnn" onClick={prevImage}>
-        <i class="fa-solid fa-caret-left"></i>
+        <i className="fa-solid fa-caret-left"></i>
       </button>
       {movies ? (
         <Link
@@ -42,7 +42,7 @@ export default function ImageSlider({ movies }) {
           <p className="info">
             {movies.results[ImageIndex].release_date}
             <span style={{ float: "right" }}>
-              <i class="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
               {movies.results[ImageIndex].vote_average}
             </span>
           </p>
@@ -51,6 +51,7 @@ export default function ImageSlider({ movies }) {
       ) : (
         <Skeleton containerClassName="slider-skeleton"
         height={1000}
+        // width={50}
         baseColor="#202020"
         highlightColor="#444"/>
       )}
@@ -59,7 +60,7 @@ export default function ImageSlider({ movies }) {
           return (
             <span
               onClick={() => setImageIndex(index)}
-              class={index === ImageIndex ? "marked" : ""}
+              className={index === ImageIndex ? "marked" : ""}
             >
               •
             </span>
@@ -71,10 +72,10 @@ export default function ImageSlider({ movies }) {
     <div className="slider small-screen">
       <img src={images_small[ImageIndex]} />
       <button className="btnn" onClick={nextImage}>
-        <i class="fa-solid fa-caret-right"></i>
+        <i className="fa-solid fa-caret-right"></i>
       </button>
       <button className="btnn" onClick={prevImage}>
-        <i class="fa-solid fa-caret-left"></i>
+        <i className="fa-solid fa-caret-left"></i>
       </button>
       {movies ? (
         <Link
@@ -85,7 +86,7 @@ export default function ImageSlider({ movies }) {
           <p className="info">
             {movies.results[ImageIndex].release_date}
             <span style={{ float: "right" }}>
-              <i class="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
               {movies.results[ImageIndex].vote_average}
             </span>
           </p>
@@ -102,7 +103,7 @@ export default function ImageSlider({ movies }) {
           return (
             <span
               onClick={() => setImageIndex(index)}
-              class={index === ImageIndex ? "marked" : ""}
+              className={index === ImageIndex ? "marked" : ""}
             >
               •
             </span>

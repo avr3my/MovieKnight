@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./nav.css";
 import Search from "../search/Search";
-import logo from "../assets/black_logo.jpg";
+import logo from "../../assets/black_logo.jpg";
 
 const Nav = () => {
   const [bar, setBar] = useState(false);

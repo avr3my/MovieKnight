@@ -43,7 +43,7 @@ export default function MovieGroup({ category }) {
           ? movies.items.map((movie) => <MovieCard details={movie} />)
           :
           movies.results.map((movie) => <MovieCard details={movie} />)
-          : arr.map(() => <Loader  />)}
+          : arr.map((i,key) => <Loader key={key}  />)}
       </div>
     </div>
   );
